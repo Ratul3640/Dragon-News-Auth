@@ -6,17 +6,18 @@ const LeftSideNav = () => {
 
     useEffect(() => {
         fetch('categories.json')
-            .then(res => res.json()
-                .then(data => setCategories(data)))
+            .then(res => res.json())
+            .then(data => setCategories(data))
     }, [])
     return (
         <div className='space-y-6'>
             <h2 className='text-2xl'>All Categories</h2>
             {
                 categories.map(category => <Link
-                    className='block mr-4 text-xl font-semibold '
-                    key={category.id}>
-                    {/* to={`/category/${category.id}`} */}
+                    className='block ml-4 text-xl font-semibold '
+                    key={category.id}
+                    to={`/category/${category.id}`}
+                >
                     {category.name}</Link>)
             }
         </div>
@@ -24,3 +25,4 @@ const LeftSideNav = () => {
 };
 
 export default LeftSideNav;
+
